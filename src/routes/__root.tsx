@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -145,6 +146,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en" className="js">
       <head>
         <HeadContent />
+        <script src="/site.js" defer></script>
       </head>
       <body>
         {children}
@@ -156,6 +158,25 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    const trigger = () => {
+      if (
+        typeof window !== "undefined" &&
+        typeof (window as unknown as { initSite?: () => void }).initSite === "function"
+      ) {
+        (window as unknown as { initSite: () => void }).initSite();
+      }
+    };
+    trigger();
+    const raf = requestAnimationFrame(trigger);
+    const timer = setTimeout(trigger, 80);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+    };
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
