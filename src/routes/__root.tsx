@@ -7,25 +7,21 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
 
-import appCss from "../styles.css?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", fontFamily: "system-ui, sans-serif" }}>
+      <div style={{ maxWidth: "28rem", textAlign: "center" }}>
+        <h1 style={{ fontSize: "4.5rem", fontWeight: 700, margin: 0 }}>404</h1>
+        <h2 style={{ marginTop: "1rem", fontSize: "1.25rem", fontWeight: 600 }}>Page not found</h2>
+        <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "#3E5A5C" }}>
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+        <div style={{ marginTop: "1.5rem" }}>
+          <Link to="/" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: "0.625rem", background: "#02383C", color: "#fff", padding: "0.5rem 1rem", fontSize: "0.875rem", fontWeight: 500, textDecoration: "none" }}>
             Go home
           </Link>
         </div>
@@ -42,27 +38,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", fontFamily: "system-ui, sans-serif" }}>
+      <div style={{ maxWidth: "28rem", textAlign: "center" }}>
+        <h1 style={{ fontSize: "1.25rem", fontWeight: 600 }}>This page didn't load</h1>
+        <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "#3E5A5C" }}>
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div style={{ marginTop: "1.5rem", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem" }}>
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: "0.625rem", background: "#02383C", color: "#fff", padding: "0.5rem 1rem", fontSize: "0.875rem", fontWeight: 500, border: "none", cursor: "pointer" }}
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: "0.625rem", border: "1px solid #D6E7E7", background: "#fff", color: "#0A2B2E", padding: "0.5rem 1rem", fontSize: "0.875rem", fontWeight: 500, textDecoration: "none" }}
           >
             Go home
           </a>
@@ -75,21 +69,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Studio App" },
-      { name: "description", content: "AI Studio Generated Project" },
-      { name: "author", content: "AI Studio" },
-      { property: "og:title", content: "AI Studio App" },
-      { property: "og:description", content: "AI Studio Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   shellComponent: RootShell,
@@ -98,9 +78,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-function RootShell({ children }: { children: ReactNode }) {
+function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="js">
       <head>
         <HeadContent />
       </head>

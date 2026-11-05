@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ClientPortalRouteImport } from './routes/client-portal'
+import { Route as ConsultingRouteImport } from './routes/consulting'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as InsuranceRouteImport } from './routes/insurance'
+import { Route as InvestmentAdvisoryRouteImport } from './routes/investment-advisory'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RealEstateRouteImport } from './routes/real-estate'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TaxAccountingRouteImport } from './routes/tax-accounting'
+import { Route as TaxResourcesRouteImport } from './routes/tax-resources'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientPortalRoute = ClientPortalRouteImport.update({
+  id: '/client-portal',
+  path: '/client-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultingRoute = ConsultingRouteImport.update({
+  id: '/consulting',
+  path: '/consulting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsuranceRoute = InsuranceRouteImport.update({
+  id: '/insurance',
+  path: '/insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestmentAdvisoryRoute = InvestmentAdvisoryRouteImport.update({
+  id: '/investment-advisory',
+  path: '/investment-advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealEstateRoute = RealEstateRouteImport.update({
+  id: '/real-estate',
+  path: '/real-estate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxAccountingRoute = TaxAccountingRouteImport.update({
+  id: '/tax-accounting',
+  path: '/tax-accounting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxResourcesRoute = TaxResourcesRouteImport.update({
+  id: '/tax-resources',
+  path: '/tax-resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/client-portal': typeof ClientPortalRoute
+  '/consulting': typeof ConsultingRoute
+  '/contact': typeof ContactRoute
+  '/insurance': typeof InsuranceRoute
+  '/investment-advisory': typeof InvestmentAdvisoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate': typeof RealEstateRoute
+  '/services': typeof ServicesRoute
+  '/tax-accounting': typeof TaxAccountingRoute
+  '/tax-resources': typeof TaxResourcesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/client-portal': typeof ClientPortalRoute
+  '/consulting': typeof ConsultingRoute
+  '/contact': typeof ContactRoute
+  '/insurance': typeof InsuranceRoute
+  '/investment-advisory': typeof InvestmentAdvisoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate': typeof RealEstateRoute
+  '/services': typeof ServicesRoute
+  '/tax-accounting': typeof TaxAccountingRoute
+  '/tax-resources': typeof TaxResourcesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/client-portal': typeof ClientPortalRoute
+  '/consulting': typeof ConsultingRoute
+  '/contact': typeof ContactRoute
+  '/insurance': typeof InsuranceRoute
+  '/investment-advisory': typeof InvestmentAdvisoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate': typeof RealEstateRoute
+  '/services': typeof ServicesRoute
+  '/tax-accounting': typeof TaxAccountingRoute
+  '/tax-resources': typeof TaxResourcesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/client-portal'
+    | '/consulting'
+    | '/contact'
+    | '/insurance'
+    | '/investment-advisory'
+    | '/privacy'
+    | '/real-estate'
+    | '/services'
+    | '/tax-accounting'
+    | '/tax-resources'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/client-portal'
+    | '/consulting'
+    | '/contact'
+    | '/insurance'
+    | '/investment-advisory'
+    | '/privacy'
+    | '/real-estate'
+    | '/services'
+    | '/tax-accounting'
+    | '/tax-resources'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/client-portal'
+    | '/consulting'
+    | '/contact'
+    | '/insurance'
+    | '/investment-advisory'
+    | '/privacy'
+    | '/real-estate'
+    | '/services'
+    | '/tax-accounting'
+    | '/tax-resources'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ClientPortalRoute: typeof ClientPortalRoute
+  ConsultingRoute: typeof ConsultingRoute
+  ContactRoute: typeof ContactRoute
+  InsuranceRoute: typeof InsuranceRoute
+  InvestmentAdvisoryRoute: typeof InvestmentAdvisoryRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RealEstateRoute: typeof RealEstateRoute
+  ServicesRoute: typeof ServicesRoute
+  TaxAccountingRoute: typeof TaxAccountingRoute
+  TaxResourcesRoute: typeof TaxResourcesRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-portal': {
+      id: '/client-portal'
+      path: '/client-portal'
+      fullPath: '/client-portal'
+      preLoaderRoute: typeof ClientPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consulting': {
+      id: '/consulting'
+      path: '/consulting'
+      fullPath: '/consulting'
+      preLoaderRoute: typeof ConsultingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insurance': {
+      id: '/insurance'
+      path: '/insurance'
+      fullPath: '/insurance'
+      preLoaderRoute: typeof InsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investment-advisory': {
+      id: '/investment-advisory'
+      path: '/investment-advisory'
+      fullPath: '/investment-advisory'
+      preLoaderRoute: typeof InvestmentAdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/real-estate': {
+      id: '/real-estate'
+      path: '/real-estate'
+      fullPath: '/real-estate'
+      preLoaderRoute: typeof RealEstateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tax-accounting': {
+      id: '/tax-accounting'
+      path: '/tax-accounting'
+      fullPath: '/tax-accounting'
+      preLoaderRoute: typeof TaxAccountingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tax-resources': {
+      id: '/tax-resources'
+      path: '/tax-resources'
+      fullPath: '/tax-resources'
+      preLoaderRoute: typeof TaxResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ClientPortalRoute: ClientPortalRoute,
+  ConsultingRoute: ConsultingRoute,
+  ContactRoute: ContactRoute,
+  InsuranceRoute: InsuranceRoute,
+  InvestmentAdvisoryRoute: InvestmentAdvisoryRoute,
+  PrivacyRoute: PrivacyRoute,
+  RealEstateRoute: RealEstateRoute,
+  ServicesRoute: ServicesRoute,
+  TaxAccountingRoute: TaxAccountingRoute,
+  TaxResourcesRoute: TaxResourcesRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
