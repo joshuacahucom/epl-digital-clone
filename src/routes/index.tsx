@@ -5,21 +5,21 @@ export const Route = createFileRoute("/")({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EPL | Tax Strategy, Investment Advice, Real Estate and Insurance in Mesa, AZ" },
+      { title: "EPL | Tax, Investments, Real Estate & Insurance in Mesa, AZ" },
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "EPL is a Mesa, AZ financial firm offering tax strategy, business consulting, fiduciary investment advisory, real estate, insurance, tax preparation and accounting under one roof.",
       },
       { name: "robots", content: "noindex, nofollow" },
       {
         property: "og:title",
-        content: "EPL | Tax Strategy, Investment Advice, Real Estate and Insurance in Mesa, AZ",
+        content: "EPL | Tax, Investments, Real Estate & Insurance in Mesa, AZ",
       },
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "EPL is a Mesa, AZ financial firm offering tax strategy, business consulting, fiduciary investment advisory, real estate, insurance, tax preparation and accounting under one roof.",
       },
       { property: "og:type", content: "website" },
       {
