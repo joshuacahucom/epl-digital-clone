@@ -13,8 +13,6 @@ export default defineConfig({
   devServerBridge: { errorCollector: false },
   // Do not set server.hmr.timeout — Vite 8 deprecated those websocket fields
   // (use server.ws.*). Overlay/host/port are package-owned; default WS timeout is 30s.
-  // Generate source maps for first-party JavaScript so production bundles are debuggable.
-  vite: { build: { sourcemap: true } },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
