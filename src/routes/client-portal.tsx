@@ -24,12 +24,12 @@ export const Route = createFileRoute("/client-portal")({
     links: [
       {
         rel: "icon",
-        href: "https://vibe.filesafe.space/1793799115821008382/assets/83d24211-8158-46d8-abdd-e7f8e8b1d34b.png",
-        type: "image/png",
+        href: "https://vibe.filesafe.space/1793799115821008382/assets/d99d7638-12aa-4ba1-a7fc-95dd6f6a319e.webp",
+        type: "image/webp",
       },
       {
         rel: "apple-touch-icon",
-        href: "https://vibe.filesafe.space/1793799115821008382/assets/4c031e01-308d-4803-97a4-e0a4ae37662f.png",
+        href: "https://vibe.filesafe.space/1793799115821008382/assets/d99d7638-12aa-4ba1-a7fc-95dd6f6a319e.webp",
       },
       {
         rel: "preload",
