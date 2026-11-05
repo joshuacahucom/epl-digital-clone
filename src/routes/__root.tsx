@@ -8,9 +8,14 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 
 import { reportVibeError } from "../lib/vibe-error-reporting";
+import "@/components/chat/chat-widget.css";
+
+const ChatWidget = lazy(() =>
+  import("@/components/chat/ChatWidget").then((m) => ({ default: m.ChatWidget })),
+);
 
 function NotFoundComponent() {
   return (
@@ -142,6 +147,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <html lang="en" className="js">
       <head>
@@ -150,6 +157,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        {mounted && (
+          <Suspense fallback={null}>
+            <ChatWidget />
+          </Suspense>
+        )}
         <Scripts />
       </body>
     </html>
