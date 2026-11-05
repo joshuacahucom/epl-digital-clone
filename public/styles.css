@@ -238,7 +238,7 @@ fieldset{border:0;margin:0;padding:0}
 .legal{border-top:1px solid rgba(255,255,255,.14);margin-top:2.8rem;padding-top:1.3rem;font-size:.88rem;line-height:1.55}
 .legal p{max-width:none;margin-bottom:.5rem}
 
-/* One entrance per section, only when scripting and motion are on */
+/* Section entrance animations - active when .in is added, default visible */
 @media (prefers-reduced-motion:no-preference){
   .js .rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
   .js .rise.in{opacity:1;transform:none}
