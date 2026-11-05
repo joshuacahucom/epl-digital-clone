@@ -153,7 +153,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en" className="js">
       <head>
         <HeadContent />
-        <script src="/site.js" defer></script>
       </head>
       <body>
         {children}
