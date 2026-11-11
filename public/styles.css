@@ -179,6 +179,11 @@ ul{margin:0;padding:0;list-style:none}
 .partners img{max-height:58px;width:auto}
 .partners .badge img{max-height:120px}
 
+.fiduciary{background:var(--deep);color:#CDE6E7;border-radius:var(--r-lg);padding:clamp(1.6rem,4vw,3rem)}
+.fiduciary h2{color:#fff}
+.fiduciary h3{color:var(--aqua);font-size:1.3rem;margin:1rem 0 .5rem}
+.fiduciary p{font-size:1.12rem;line-height:1.6}
+
 /* People cards */
 .contacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:1rem}
 .contacts li{display:flex;align-items:center;gap:1rem;background:#fff;border-radius:var(--r-md);box-shadow:inset 0 0 0 1px var(--line);padding:1rem;line-height:1.35;min-width:0}
@@ -238,11 +243,24 @@ fieldset{border:0;margin:0;padding:0}
 .legal{border-top:1px solid rgba(255,255,255,.14);margin-top:2.8rem;padding-top:1.3rem;font-size:.88rem;line-height:1.55}
 .legal p{max-width:none;margin-bottom:.5rem}
 
-/* Section entrance animations - active when .in is added, default visible */
+/* One entrance per section, only when scripting and motion are on */
 @media (prefers-reduced-motion:no-preference){
   .js .rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
   .js .rise.in{opacity:1;transform:none}
 }
+
+
+/* Nov 7 revisions */
+.hero-grid.solo{grid-template-columns:minmax(0,1fr)}
+.hero-grid.solo h1{max-width:13em}
+.stats.two ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stats.two b{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.ihero .ih-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.ihero .helpbox h2{margin-bottom:1rem}
+.helpbox li a[aria-current]{background:var(--mist);box-shadow:inset 0 0 0 2px var(--teal);color:var(--teal)}
+#fiduciary{scroll-margin-top:110px}
+@media (max-width:1040px){.ihero .ih-grid{grid-template-columns:minmax(0,1fr)}.ihero .helpbox{max-width:560px}}
+@media (max-width:680px){.stats.two ul{grid-template-columns:minmax(0,1fr)}.helpbox ul{grid-template-columns:minmax(0,1fr)}}
 
 @media (max-width:1040px){
   .menu-btn{display:block}
@@ -280,3 +298,37 @@ fieldset{border:0;margin:0;padding:0}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{.notice,.menu-btn{display:none}.top{position:static}}
+
+/* Headline line break on desktop only */
+.br-d{display:none}
+@media (min-width:760px){.br-d{display:inline}}
+
+/* Nov 9 revisions */
+.helpby img{border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.stats.exp .exp-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);display:flex;align-items:center;gap:clamp(1rem,2.4vw,1.75rem);padding:clamp(1.2rem,2.4vw,1.9rem) clamp(1.3rem,3vw,2.4rem)}
+.stats.exp img{width:88px;height:88px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 4px var(--mist)}
+.stats.exp p{margin:0;color:var(--ink);font-size:clamp(1.25rem,2.4vw,1.9rem);font-weight:700;line-height:1.25;letter-spacing:-.02em}
+.stats.exp p b{color:var(--teal);font-weight:800}
+.ihero h1 .h1-sub{display:block;margin-top:.5rem;font-size:.5em;font-weight:700;letter-spacing:-.015em;color:#BFE6E7;line-height:1.2}
+.lead-in p{font-size:clamp(1.08rem,1.3vw,1.2rem);line-height:1.65;max-width:52rem}
+.lead-in p+p{margin-top:.9rem}
+.lead-in .tagline{color:var(--teal);font-weight:800;font-size:clamp(1.25rem,1.9vw,1.6rem);letter-spacing:-.015em;line-height:1.3}
+@media (max-width:520px){.stats.exp .exp-card{flex-direction:column;text-align:center}.stats.exp img{width:76px;height:76px}}
+/* Home hero with help box: keep the headline on three lines on desktop */
+@media (min-width:1041px){
+  .hero-grid:not(.solo){grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:clamp(2rem,4vw,3.5rem)}
+  .hero-grid:not(.solo) h1{font-size:clamp(3rem,4.4vw,4.6rem)}
+}
+.ihero .helpby img{position:static;inset:auto;z-index:auto;width:48px;height:48px}
+
+/* Nov 10: prepaid booking link */
+.cta .prepaid{margin-top:1rem;text-align:right;font-size:.97rem;color:#CDEBEC}
+.cta .prepaid a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1040px){.cta .prepaid{text-align:left}}
+.cta .prepaid a{white-space:nowrap}
+
+/* Nov 11: disclosure inside the Fiduciary Advantage box */
+.fiduciary .fid-note{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18)}
+.fiduciary .fid-note p{font-size:1rem;line-height:1.6;color:#DDF0F0}
+.fiduciary .fid-note p+p{margin-top:.7rem}
+.fiduciary .fid-note a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
