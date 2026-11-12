@@ -7,7 +7,7 @@ export const Route = createFileRoute("/investment-advisory")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Wealth management, IRAs, 401(k) and 403(b) accounts, rollovers and retirement plans from EPL Investment Advisory LLC, a Registered Investment Adviser in Mesa, Arizona.",
       },
       {
         property: "og:title",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/investment-advisory")({
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Wealth management, IRAs, 401(k) and 403(b) accounts, rollovers and retirement plans from EPL Investment Advisory LLC, a Registered Investment Adviser in Mesa, Arizona.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

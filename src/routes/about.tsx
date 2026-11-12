@@ -7,13 +7,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Meet the EPL team in Mesa, Arizona, led by Peter Ellefson, with nearly four decades of experience.",
       },
       { property: "og:title", content: "About EPL and Our Team | Mesa, AZ" },
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Meet the EPL team in Mesa, Arizona, led by Peter Ellefson, with nearly four decades of experience.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

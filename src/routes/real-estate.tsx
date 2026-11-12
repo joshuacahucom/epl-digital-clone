@@ -7,13 +7,13 @@ export const Route = createFileRoute("/real-estate")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Commercial and residential real estate services from EPL Realty Group LLC in Mesa, Arizona.",
       },
       { property: "og:title", content: "Real Estate in Mesa, AZ | EPL Realty Group LLC" },
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Commercial and residential real estate services from EPL Realty Group LLC in Mesa, Arizona.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -6,14 +6,12 @@ export const Route = createFileRoute("/client-portal")({
     meta: [
       {
         name: "description",
-        content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+        content: "Upload your documents securely through EPL's client portal.",
       },
       { property: "og:title", content: "Secure Client Portal | EPL" },
       {
         property: "og:description",
-        content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+        content: "Upload your documents securely through EPL's client portal.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

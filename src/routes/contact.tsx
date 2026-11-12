@@ -6,14 +6,12 @@ export const Route = createFileRoute("/contact")({
     meta: [
       {
         name: "description",
-        content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+        content: "Contact EPL in Mesa, Arizona by phone, email, or book a complimentary call.",
       },
       { property: "og:title", content: "Contact EPL | Mesa, AZ" },
       {
         property: "og:description",
-        content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+        content: "Contact EPL in Mesa, Arizona by phone, email, or book a complimentary call.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

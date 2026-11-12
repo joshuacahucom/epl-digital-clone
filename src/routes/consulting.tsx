@@ -7,13 +7,13 @@ export const Route = createFileRoute("/consulting")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Tax strategy, business structuring, part-time CFO services and coaching for business owners and individuals from EPL in Mesa, Arizona.",
       },
       { property: "og:title", content: "Tax Strategy and Business Consulting in Mesa, AZ | EPL" },
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Tax strategy, business structuring, part-time CFO services and coaching for business owners and individuals from EPL in Mesa, Arizona.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

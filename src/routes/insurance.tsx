@@ -7,7 +7,7 @@ export const Route = createFileRoute("/insurance")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "EPL Benefits Group is an independent insurance agency in Mesa, Arizona, offering life, health, home, auto and business insurance.",
       },
       {
         property: "og:title",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/insurance")({
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "EPL Benefits Group is an independent insurance agency in Mesa, Arizona, offering life, health, home, auto and business insurance.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

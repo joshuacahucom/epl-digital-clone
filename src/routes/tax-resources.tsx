@@ -7,13 +7,13 @@ export const Route = createFileRoute("/tax-resources")({
       {
         name: "description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Check your refund, pay your taxes, find IRS and state forms, or request a tax organizer from EPL.",
       },
       { property: "og:title", content: "Tax Resources and Organizers | EPL" },
       {
         property: "og:description",
         content:
-          "EPL brings together tax strategy, business consulting, fiduciary investment advice, real estate and insurance in Mesa, Arizona.",
+          "Check your refund, pay your taxes, find IRS and state forms, or request a tax organizer from EPL.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
