@@ -35,7 +35,6 @@ export const Route = createFileRoute("/services")({
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
-      { rel: "stylesheet", href: "/styles.css" },
     ],
     scripts: [{ src: "/site.js", type: "module", defer: true }],
   }),

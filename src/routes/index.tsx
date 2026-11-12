@@ -38,7 +38,16 @@ export const Route = createFileRoute("/")({
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
-      { rel: "stylesheet", href: "/styles.css" },
+      // Preload the home hero image (largest above-the-fold element) with high priority.
+      {
+        rel: "preload",
+        href: "https://vibe.filesafe.space/1793799115821008382/assets/5bdaef55-55a8-49b2-a260-16d7e33ac22f.webp",
+        as: "image",
+        fetchpriority: "high",
+        imagesrcset:
+          "https://vibe.filesafe.space/1793799115821008382/assets/5bdaef55-55a8-49b2-a260-16d7e33ac22f.webp 1600w",
+        imagesizes: "100vw",
+      },
     ],
     scripts: [{ src: "/site.js", type: "module", defer: true }],
   }),
