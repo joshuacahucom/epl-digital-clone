@@ -128,6 +128,57 @@ function initSite() {
     form.dataset.bound = 'true';
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const data = new FormData(form);
+      const services = data.getAll('service').join(', ');
+      const getTrackingSessionId = () => {
+        try {
+          const sid = document.cookie.match(/(?:^|;\s*)__vibe_sid=([0-9a-f-]{36})(?:;|$)/)?.[1];
+          if (sid) return sid;
+        } catch {}
+        return crypto.randomUUID();
+      };
+      const trackingPayload = {
+        type: 'external_form_submission',
+        timestamp: Date.now(),
+        formId: 'contact-form',
+        formData: {
+          first_name: data.get('first_name'),
+          last_name: data.get('last_name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          calendar_notes: data.get('notes'),
+          '5kl9iKQ5FJOsLbFQBH8U': services,
+        },
+        formLabels: {
+          first_name: 'First name',
+          last_name: 'Last name',
+          email: 'Email',
+          phone: 'Phone',
+          calendar_notes: 'Anything else we should know?',
+          '5kl9iKQ5FJOsLbFQBH8U': 'Service',
+        },
+        url: window.location.href,
+        title: document.title,
+        path: window.location.pathname,
+        userAgent: navigator.userAgent,
+        trackingId: 'tk_520d9bb4d2064d9cabe23ae301916465',
+        locationId: 'fif183yujGhp21dM2V8d',
+        projectId: '1793799115821008382',
+        sessionId: getTrackingSessionId(),
+        properties: {
+          deviceType: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+          source: 'ai_studio',
+          projectId: '1793799115821008382',
+          formName: 'Contact Form',
+        },
+      };
+      const body = new FormData();
+      body.append('event', JSON.stringify(trackingPayload));
+      fetch('https://backend.leadconnectorhq.com/external-tracking/events', {
+        method: 'POST',
+        headers: { version: '2021-07-28' },
+        body,
+      }).catch(() => {});
       const status = document.querySelector('#form-status');
       if (status) {
         status.hidden = false;
