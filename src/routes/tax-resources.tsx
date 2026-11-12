@@ -35,6 +35,7 @@ export const Route = createFileRoute("/tax-resources")({
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
+      { rel: "stylesheet", href: "/styles.css" },
     ],
     scripts: [{ src: "/site.js", type: "module", defer: true }],
   }),

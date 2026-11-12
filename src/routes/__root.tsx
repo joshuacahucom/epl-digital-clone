@@ -11,7 +11,6 @@ import {
 import { useEffect, useState, lazy, Suspense } from "react";
 
 import { reportVibeError } from "../lib/vibe-error-reporting";
-import { criticalCss } from "@/lib/critical-css";
 import "@/components/chat/chat-widget.css";
 
 const ChatWidget = lazy(() =>
@@ -138,9 +137,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [{ name: "robots", content: "index, follow" }],
-  }),
+  head: () => ({}),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -154,24 +151,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en" className="js">
       <head>
         <HeadContent />
-        {/* Preconnect to the image/font host and load the full stylesheet
-            without blocking first paint. The critical above-the-fold CSS is
-            inlined below so this can arrive asynchronously and swap in. */}
-        <link rel="preconnect" href="https://vibe.filesafe.space" />
-        <link
-          rel="stylesheet"
-          href="/styles.css"
-          media="print"
-          onLoad={(e) => {
-            (e.currentTarget as HTMLLinkElement).media = "all";
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="/styles.css" />
-        </noscript>
-        {/* Critical above-the-fold CSS inlined so the header + hero paint
-            before the async stylesheet arrives. */}
-        <style dangerouslySetInnerHTML={{ __html: criticalCss }} />
+        <script src="/site.js" defer></script>
       </head>
       <body>
         {children}
