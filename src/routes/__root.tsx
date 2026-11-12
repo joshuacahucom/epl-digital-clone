@@ -11,7 +11,8 @@ import {
 import { useEffect, useState, lazy, Suspense } from "react";
 
 import { reportVibeError } from "../lib/vibe-error-reporting";
-import "@/components/chat/chat-widget.css";
+// Site styles are inlined into <head> so the first paint does not wait on a stylesheet request.
+import siteCss from "../site-styles.css?raw";
 
 const ChatWidget = lazy(() =>
   import("@/components/chat/ChatWidget").then((m) => ({ default: m.ChatWidget })),
@@ -137,7 +138,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({}),
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#02383C" },
+    ],
+    links: [
+      { rel: "icon", type: "image/webp", href: "/img/epl-logo-132.webp" },
+      { rel: "apple-touch-icon", href: "/img/epl-logo-320.webp" },
+      {
+        rel: "preload",
+        href: "/fonts/manrope.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+    ],
+    styles: [{ children: siteCss }],
+  }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -145,8 +164,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // Defer the chat widget so it never competes with the page's first load:
+  // it mounts on the first interaction, or after the page has been idle for a while.
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    let done = false;
+    const events = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
+    const start = () => {
+      if (done) return;
+      done = true;
+      events.forEach((e) => window.removeEventListener(e, start));
+      setMounted(true);
+    };
+    events.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
+    const timer = window.setTimeout(start, 9000);
+    return () => {
+      window.clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, start));
+    };
+  }, []);
   return (
     <html lang="en" className="js">
       <head>

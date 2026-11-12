@@ -1,4 +1,4 @@
-@font-face{font-family:"Manrope";src:url(https://vibe.filesafe.space/1793799115821008382/assets/d94b416f-2d8b-440d-96ba-84ba64ee07b5.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Manrope";src:url(/fonts/manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
 
 :root{
   --teal:#007A7F;        /* sampled from the EPL logo */

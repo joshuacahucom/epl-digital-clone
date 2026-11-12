@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+// Loaded with the (deferred) widget so it never blocks the first paint.
+import "./chat-widget.css";
 import { chatWidgetConfig, loadChatCore } from "@/lib/chat-widget-config";
 import { chatCopy } from "@/lib/chat-widget-copy";
 import type { ChatClient, ChatState } from "./chat-types";

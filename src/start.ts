@@ -1,4 +1,3 @@
-import { attachSupabaseAuth } from "./integrations/supabase/auth-attacher";
 import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
@@ -25,7 +24,16 @@ const csrfMiddleware = createCsrfMiddleware({
   filter: (ctx) => ctx.handlerType === "serverFn",
 });
 
+// Attach the Supabase session to server-function calls, loading the Supabase client
+// only when such a call happens, so it stays out of the initial page JavaScript.
+const lazySupabaseAuth = createMiddleware({ type: "function" }).client(async ({ next }) => {
+  const { supabase } = await import("./integrations/supabase/client");
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  return next({ headers: token ? { Authorization: `Bearer ${token}` } : {} });
+});
+
 export const startInstance = createStart(() => ({
-  functionMiddleware: [attachSupabaseAuth],
+  functionMiddleware: [lazySupabaseAuth],
   requestMiddleware: [errorMiddleware, csrfMiddleware],
 }));
